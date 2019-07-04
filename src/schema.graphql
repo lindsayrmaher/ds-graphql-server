@@ -1,0 +1,15 @@
+type Query {
+    info: String!
+    getContent(stationID: String!): [Item!]!
+    getItem(stationID: String!, id: ID!): Item!
+}
+
+type Item {
+    id: String!
+    headline: String!
+    metaDescription: String!
+    shortURL: String!
+    lastModifiedDate: String!
+    searchThumbLocation: String!
+    section: String!
+}
