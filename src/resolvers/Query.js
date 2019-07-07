@@ -1,12 +1,13 @@
 const axios = require('axios')
+const APIKey = '8de6120dbce543aeb5f9cd66d857b517'
 
 const info = () => 'This is our data lagoon server!!!'
 
 const getContent = async (parent, args) => {
-    const { stationID } = args
+    // const { stationID } = args
     try {
-        const response = await axios.get(``)
-        const items = await response.data.data.items
+        const response = await axios.get(`https://newsapi.org/v2/sources?language=en&apiKey=${APIKey}`)
+        const items = await response.sources
         return items
     }
     catch (error) {
