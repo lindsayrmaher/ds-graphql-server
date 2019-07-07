@@ -1,15 +1,21 @@
 type Query {
     info: String!
-    getContent(stationID: String!): [Item!]!
+    getContent: [Item!]!
     getItem(stationID: String!, id: ID!): Item!
 }
 
 type Item {
-    id: String!
-    headline: String!
-    metaDescription: String!
-    shortURL: String!
-    lastModifiedDate: String!
-    searchThumbLocation: String!
-    section: String!
+    source: Source!
+    author: String
+    title: String!
+    description: String
+    url: String!
+    urlToImage: String!
+    publishedAt: String!
+    content: String!
+}
+
+type Source {
+    id: String
+    name: String
 }
