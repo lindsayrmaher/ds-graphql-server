@@ -7,7 +7,8 @@ const getContent = async (parent, args) => {
     // const { stationID } = args
     try {
         const response = await axios.get(`https://newsapi.org/v2/sources?language=en&apiKey=${APIKey}`)
-        const items = await response.sources
+        console.log(response)
+        const items = await response.data.sources
         return items
     }
     catch (error) {
