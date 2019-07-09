@@ -4,6 +4,7 @@ const baseURL = 'https://newsapi.org/v2/'
 
 const info = () => 'This is our data lagoon server!!!'
 
+// update the name here!
 const getContent = async () => {
     try {
         const response = await axios.get(`${baseURL}top-headlines?country=us&apiKey=${APIKey}`)
@@ -15,21 +16,22 @@ const getContent = async () => {
     }
 }
 
-const getItem = async (parent, args) => {
-    const { stationID, id } = args
+//to-do: see if these can be consolidated ^^
+const nytimesContent = async () => {
     try {
-        const response = await axios.get(``)
-        console.log('le response', response.data.data)
-        const item = await response.data.data
-        return item
+        const response = await axios.get(`${baseURL}everything?domains=nytimes.com&from=2019-07-08&to=2019-07-09&apiKey=${APIKey}`)
+        const items = await response.data.articles
+        return items
     }
     catch (error) {
-        console.error(error)
+        console.log(`There was an error! - ${error}`)
     }
 }
+
 
 module.exports = {
     info,
     getContent,
-    getItem
+    nytimesContent
 }
+
